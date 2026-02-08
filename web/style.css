@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper handles animation */
+.heart-wrapper {
+  animation: heartbeat 1.4s infinite;
+  cursor: pointer;
+}
+
+/* Classic flat heart */
+.heart {
+  width: 140px;
+  height: 120px;
+  background: #e60000;
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+/* Heart lobes */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 120px;
+  background: #e60000;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -70px;
+  left: 0;
+}
+
+.heart::after {
+  left: 70px;
+  top: 0;
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.15); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.12); }
+  70%  { transform: scale(1); }
+}
+
+/* Click animation */
+.expand {
+  animation: expand 0.8s forwards;
+}
+
+@keyframes expand {
+  to {
+    transform: scale(25);
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fade 0.7s forwards;
+}
+
+@keyframes fade {
+  to {
+    background: #fff;
+  }
+}
